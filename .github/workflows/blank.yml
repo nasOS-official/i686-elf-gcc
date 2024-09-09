@@ -28,10 +28,18 @@ jobs:
       - uses: actions/checkout@v4
 
 
-      - name: Make Arch Package
-        uses: nasOS-official/arch-makepkg@0.0.3    
-        # with:
-        #   gpg: 13FCEF89DD9E3C4F
+      # - name: Make Arch Package
+      #   # uses: nasOS-official/arch-makepkg@0.0.3    
+      #   runs:
+      #     using: docker
+      #     image: Dockerfile
+      #     args:
+          # with:
+        #   gpg: 13FCEF89DD9E3C4F'
+
+
+      - name: Build Docker image
+        uses: ./.github/actions/dockerbuild
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.4.0
