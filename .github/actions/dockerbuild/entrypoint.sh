@@ -1,5 +1,6 @@
 #!/bin/bash
-su - builder -c "git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -si"
+su - builder -c "git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg"
+pacman -U yay-bin/*.pkg.tar.zst 
 
 if [[ ! -z "$1" ]]; then
     cd "$1"
