@@ -1,6 +1,6 @@
 #!/bin/bash
-su - builder -c "git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg"
-pacman -U --noconfirm /home/builder/yay-bin/*.tar.zst 
+su - builder -c "git clone https://aur.archlinux.org/i686-elf-binutils-bin.git && cd i686-elf-binutils-bin && makepkg"
+pacman -U --noconfirm /home/builder/i686-elf-binutils-bin/*.tar.zst 
 
 if [[ ! -z "$1" ]]; then
     cd "$1"
