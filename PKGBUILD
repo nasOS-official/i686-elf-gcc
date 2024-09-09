@@ -10,7 +10,7 @@ url="https://www.gnu.org/software/gcc"
 license=('GPL')
 groups=(i686-elf-toolchain)
 makedepends=(gmp mpfr gcc)
-depends=(xz libmpc i686-elf-binutils-bin)
+# depends=(xz libmpc i686-elf-binutils-bin)
 source=(
     "http://ftpmirror.gnu.org/gcc/gcc-$pkgver/gcc-$pkgver.tar.xz"
     "gcc11-Wno-format-security.patch" # https://bugs.archlinux.org/task/70701
