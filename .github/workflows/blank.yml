@@ -41,28 +41,29 @@ jobs:
       - name: Build Docker image
         uses: ./.github/actions/dockerbuild
 
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.4.0
+      # - name: Upload a Build Artifact
+      #   uses: actions/upload-artifact@v4.4.0
             
-        with:
-          name: build
-          path: |
-              .
+      #   with:
+      #     name: build
+      #     path: |
+      #         .
             
           # pkg/i686-elf-binutils/
             
-      # - name: Archive Release
-      #   working-directory: pkg/i686-elf-binutils/
-      #   run: |
-      #     sudo zip -9r release.zip . -x .PKGINFO -x .MTREE -x .BUILDINFO
+      - name: Archive Release
+        working-directory: pkg/i686-elf-gcc/
+        run: |
+          sudo zip -9r release.zip . -x .PKGINFO -x .MTREE -x .BUILDINFO
         
-      # - name: release
-      #   uses: softprops/action-gh-release@v0.1.15
-      #   with:
-      #     name: GNU Binutils
-      #     tag_name: ${{  github.ref_name }}
-      #     draft: false
-      #     files: |
-      #       *.pkg.tar.zst
+      - name: release
+        uses: softprops/action-gh-release@v0.1.15
+        with:
+          name: GNU GCC
+          tag_name: ${{  github.ref_name }}
+          draft: false
+          files: |
+            *.pkg.tar.zst
+            pkg/i686-elf-gcc/release.zip
               
               
