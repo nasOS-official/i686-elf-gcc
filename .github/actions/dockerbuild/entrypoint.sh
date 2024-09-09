@@ -11,7 +11,7 @@ ls -la
 
 pkg_deps=$(source ./PKGBUILD && echo ${makedepends[@]} ${depends[@]})
 echo "Installing dependencies: $pkg_deps"
-yay -Syu --noconfirm $pkg_deps
+pacman -Syu --noconfirm $pkg_deps
 
 chown -R builder "$PWD"
 
